@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<template id="assets_backend" name="web_psit assets for backend" inherit_id="web.assets_backend">
+		    <xpath expr="." position="inside">
+		        <link rel="stylesheet" href="/web_psit/static/src/css/web_psit.css"/>
+		        <script type="text/javascript" src="/web_psit/static/src/js/web_psit.js" />
+		    </xpath>
+		</template>
+
+	</data>
+</openerp>
+	

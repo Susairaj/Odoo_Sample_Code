@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="student_student_view_form">
+			<field name="name">student.student.form</field>
+			<field name="model">student.student</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Teacher">
+					<header>
+						<field name="state" widget="statusbar" nolabel="1" statusbar_visible="draft,verify,done" clickable="True" statusbar_colors='{"verify":"red"}'/>
+					</header>
+					<sheet>
+						<button name="get_view" type="object" string="Get View"
+							icon="gtk-apply" />
+						<button name="open_url" type="object" string="Open URl"
+							icon="gtk-apply" />
+						<button name="print_report" type="object" string="Print Report"
+							icon="gtk-apply" />
+						<hr />
+						<separator string="Student Mark Information" />
+						<group>
+							<h1>
+								<field name="student_id" placeholder="Roll No" />
+							</h1>
+						</group>
+						<group>
+							<group>
+								<field name="name" />
+								<field name="year_id" widget="selection" />
+								<field name="tamil" />
+								<field name="maths" />
+								<field name="social" />
+								<field name="total" />
+								<field name="duration" />
+							</group>
+							<group>
+								<field name="gender" />
+								<field name="section_id" widget="selection" />
+								<field name="english" />
+								<field name="science" />
+								<field name="avg" />
+								<field name="s_class" />
+								<field name="url" widget="url" />
+								<field name="start_date" />
+							</group>
+						</group>
+						<notebook>
+							<page string="Time Table">
+								<group>
+									<field name="no_of_hours" />
+								</group>
+								<button name="%(verify_time_view_action)d" string="Bulk Update"
+									type="action" icon="gtk-ok" />
+								<field name="time_table_ids">
+									<tree string="Time Table" editable="bottom">
+										<field name="is_check" />
+										<field name="standared_id" />
+										<field name="subject_id" />
+										<field name="start_time" />
+										<field name="end_time" />
+										<field name="is_verify" />
+									</tree>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="student_student_view_tree">
+			<field name="name">student.student.tree</field>
+			<field name="model">student.student</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Student">
+					<field name="student_id" />
+					<field name="name" />
+					<field name="gender" />
+					<field name="year_id" />
+					<field name="section_id" />
+					<field name="tamil" />
+					<field name="english" />
+					<field name="maths" />
+					<field name="science" />
+					<field name="social" />
+					<field name="total" />
+					<field name="avg" />
+					<field name="s_class" />
+					<field name="no_of_hours" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="student_student_view_action">
+			<field name="name">Student</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">student.student</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context">{}</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click here to create a student mark details.
+				</p>
+			</field>
+		</record>
+		
+		<record id="view_student_student_gantt" model="ir.ui.view">
+        <field name="name">Student Gantt</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <gantt date_delay="duration" date_start="start" string="Meetings"/>
+        </field>
+    </record>
+		<record model="ir.ui.view" id="section_section_view_tree">
+			<field name="name">section.section.tree</field>
+			<field name="model">section.section</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Teacher" editable="bottom">
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="section_section_view_form">
+			<field name="name">section.section.form</field>
+			<field name="model">section.section</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Teacher" editable="bottom">
+					<sheet>
+						<separator string="Syllabus INFo" />
+						<group>
+							<group>
+								<field name="name" />
+								<field name="syllabus_code" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="section_section_view_action">
+			<field name="name">Syllabus</field>
+			<field name="res_model">section.section</field>
+		</record>
+
+		<record model="ir.ui.view" id="time_table_iew_form">
+			<field name="name">time.table.form</field>
+			<field name="model">time.table</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Time Table">
+					<sheet>
+						<separator string="Time Table" />
+						<group>
+							<group>
+								<field name="standared_id" />
+								<field name="subject_id" />
+								<field name="start_time" />
+								<field name="end_time" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="standared_standared_view_tree">
+			<field name="name">standared.standared.tree</field>
+			<field name="model">standared.standared</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Teacher" editable="bottom">
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="standared_standared_view_action">
+			<field name="name">Standared</field>
+			<field name="res_model">standared.standared</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>
+		</record>
+
+		<!--Student Studies -->
+		<record model="ir.ui.view" id="student_studies_view_form">
+			<field name="name">student.studies.form</field>
+			<field name="model">student.studies</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Teacher" version="7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name="student_id" />
+								<field name="year_id" />
+								<field name="tamil" />
+								<field name="maths" />
+								<field name="social" />
+								<field name="total" />
+								<field name="year" />
+							</group>
+							<group>
+								<field name="gender" />
+								<field name="section_id" />
+								<field name="english" />
+								<field name="science" />
+								<field name="avg" />
+								<field name="description" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="student_studies_view_tree">
+			<field name="name">student.studies.tree</field>
+			<field name="model">student.studies</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Student">
+					<field name="student_id" />
+					<field name="gender" />
+					<field name="year_id" />
+					<field name="section_id" />
+					<field name="year" />
+					<field name="description" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="student_studies_view_action">
+			<field name="name">Student</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">student.studies</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,gantt</field>
+			<field name="context">{}</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click here to create a student Studies.
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Student" icon="terp-project" id="teacher_base_menu" />
+		<menuitem name="Student" parent="teacher_base_menu" id="teacher_sub_menu" />
+		<menuitem name="Student" parent="teacher_sub_menu" id="student_menu_mainform"
+			action="student_student_view_action" />
+		<menuitem name="Section" parent="teacher_sub_menu" id="syllabus_menu_mainform"
+			action="section_section_view_action" />
+		<menuitem name="Standared" parent="teacher_sub_menu" id="year_menu_mainform"
+			action="standared_standared_view_action" />
+		<menuitem name="Other" parent="teacher_sub_menu" id="student_studies_mainform"
+			action="student_studies_view_action" />
+
+	</data>
+</openerp>

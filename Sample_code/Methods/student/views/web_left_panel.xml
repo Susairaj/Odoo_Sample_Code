@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<!-- Add js and css files -->
+        <!-- <template id="assets_backend" name="student assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/student/static/src/css/left_panel.css"/>
+            </xpath>
+        </template> -->
+        <template id="assets_backend" name="student assets" inherit_id="website.theme">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/student/static/src/css/report.css"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>

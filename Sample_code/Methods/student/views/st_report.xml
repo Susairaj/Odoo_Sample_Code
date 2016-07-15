@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<report string="Student" id="student.student_report_view" model="student.student"
+			report_type="qweb-pdf" name="student.report_student_sample_qweb" file="student.report_student_sample_qweb" />
+	</data>
+</openerp>
