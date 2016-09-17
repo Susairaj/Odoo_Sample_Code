@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="project_report_view" model="ir.ui.view">
+		<field name="name">project.report</field>
+		<field name="model">project.report</field>
+		<field name="arch" type="xml">
+			<form>
+			<header>
+				<button name="load_data" type="object" string="Generate Report" class="oe_highlight"/>
+				<button name="print_report" string="Download Report" type="object" class="oe_highlight" />
+			</header>
+				<group>
+					<group>
+					    <field name="date_from" />
+					</group>
+					<group>
+						<field name="date_to" />
+					</group>
+				</group>
+				<field name="project_details_ids" nolable="1" >
+					<tree >
+						<field name="project_id" />
+					</tree>
+				</field>
+			</form>
+		</field>
+	</record>
+
+	<record id="prject_details_report_action" model="ir.actions.act_window">
+		<field name="name">Project Report</field>
+		<field name="res_model">project.report</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="project_report_view" />
+		<!-- <field name="context">{'nosave': '1', 'nodiscard': '1'}</field> -->
+	</record>
+
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+		<report string="Invoice Bill" id="receivables.invoice_bill_report_view" model="billing.confirmation" report_type="qweb-pdf" name="receivables.invoice_bill"	file="receivables.invoice_bill" />
+		
+		<report string="Project Details" id="receivables.project_report_view1" model="project.report" report_type="qweb-pdf" name="receivables.project_report"	file="receivables.project_report" />
+
+	</data>
+</openerp>

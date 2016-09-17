@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+	<t t-extend="ControlPanel">
+		<t t-jquery="div.container-fluid" t-operation="before">
+			<div class="oe_psit_header">
+               	<h4 class="oe_store_title"></h4>
+			</div>
+		</t>
+	</t>
+</templates>
