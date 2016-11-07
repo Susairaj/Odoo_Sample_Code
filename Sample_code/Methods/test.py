@@ -58,22 +58,28 @@
 # start_time = time.mktime(tuple)
 # end_time = time.monotonic()
 # print(timedelta(seconds=end_time - start_time))
-a = ['01:30', '06.45', '02.12', '06:57', '12:30', '00:30','01:30', '06.45', '02.12', '06:57', '12:30', '00:30','01:30', '06.45', '02.00', '06:57', '12:30', '00:30', '12:30'
-     , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30']
-min_count = 0
-sec_count = 0
+# a = ['01:30', '06.45', '02.12', '06:57', '12:30', '00:30','01:30', '06.45', '02.12', '06:57', '12:30', '00:30','01:30', '06.45', '02.00', '06:57', '12:30', '00:30', '12:30'
+#      , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30' , '12:30']
+# min_count = 0
+# sec_count = 0
+# for b in a:
+#     min_count = min_count + int(b[:2])
+#     sec_count = sec_count + int(b[3:])
+# # print min_count
+# # print sec_count/60
+# # print sec_count%60
+# import yaml
+# total_hrs = min_count + sec_count/60
+# modulas = sec_count % 60
+# print str(total_hrs) +':'+ str(modulas)
+# m = str(total_hrs) +'.'+ str(modulas)
+# x= float(m)
+# z= yaml.load(m)
+# hours = "%.2f" % (z)
+# print hours
+#######################################################
+a =  [[0, False, {u'date': u'2016-10-01', u'place': False, u'type_id': 4}],
+ [0, False, {u'date': u'2016-11-01', u'place': False, u'type_id': 5}]]
 for b in a:
-    min_count = min_count + int(b[:2])
-    sec_count = sec_count + int(b[3:])
-# print min_count
-# print sec_count/60
-# print sec_count%60
-import yaml
-total_hrs = min_count + sec_count/60
-modulas = sec_count % 60
-print str(total_hrs) +':'+ str(modulas)
-m = str(total_hrs) +'.'+ str(modulas)
-x= float(m)
-z= yaml.load(m)
-hours = "%.2f" % (z)
-print hours
+    if b[2]['type_id'] == 4:
+        print b[2]['date']

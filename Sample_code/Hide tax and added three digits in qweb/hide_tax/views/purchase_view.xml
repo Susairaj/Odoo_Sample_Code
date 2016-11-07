@@ -1,0 +1,56 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="purchase_order_inherit">
+            <field name="name">purchase.order.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page/field/tree/field[@name='taxes_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//notebook/page/field/form/sheet/group/group[2]/field[@name='taxes_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <xpath expr="//notebook/page/group/field[@name='amount_untaxed']" position="attributes">
+                    <attribute name="string">Subtotal</attribute>
+                </xpath>
+                <xpath expr="//notebook/page/group/field[@name='amount_tax']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+            </field>
+        </record>
+
+        <!-- <record model="ir.ui.view" id="purchase_order_line_inherit">
+            <field name="name">purchase.order.line.inherit</field>
+            <field name="model">purchase.order.line</field>
+            <field name="inherit_id" ref="purchase.purchase_order_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='taxes_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+            </field>
+        </record>-->
+
+        <record model="ir.ui.view" id="purchase_order_tree_inherit">
+            <field name="name">purchase.order.tree.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='amount_untaxed']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <template id="purchase_tax_hide" inherit_id="purchase.report_purchaseorder_document">
+            <xpath expr="//table/thead/tr/th[2]" position="replace"/>
+            <xpath expr="//table/tbody/tr/td[2]" position="replace"/>
+            <xpath expr="//div/div/table/tr[2]" position="replace"/>
+            <xpath expr="//div/div/table/tr[1]" position="replace"/>
+        </template>
+    </data>
+</openerp>
+
+
