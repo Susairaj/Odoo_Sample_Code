@@ -83,3 +83,5 @@ a =  [[0, False, {u'date': u'2016-10-01', u'place': False, u'type_id': 4}],
 for b in a:
     if b[2]['type_id'] == 4:
         print b[2]['date']
+        
+#####################################
