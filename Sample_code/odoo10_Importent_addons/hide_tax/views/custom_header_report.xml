@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<template id="inherit_company_header" inherit_id="report.external_layout_header">
+			<xpath expr="//div" position="replace">
+				<div class="header">
+					<div class="row">
+						<table style="width:100%;border-top:#5c65aa;height:20px">
+							<tr style="border-top:#5c65aa;height:20px;">
+								<td style="border-bottom:1px solid #5c65aa;width:10%;padding:20px;text-align:left">
+									<img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" width="130" height="70" />
+								</td>
+								<td style="border-bottom:1px solid #5c65aa;width:60%;text-align:center;border-right:1px solid #5c65aa">
+									<span style="color:#5c65aa;font-size:20px;">المتميز لقطع غيار السيارات</span>
+									<br />
+									<span style="color:red;font-size:22px;font-weight:bold;">AL MUTAMAYEZ AUTO SPARE Parts</span>
+									<br />
+									<span>
+										<span t-field="company.email"></span>
+									</span>
+								</td>
+								<td
+									style="border-bottom:1px solid #5c65aa;width:30%;padding:20px;text-align:left;color:#5c65aa;font-size:15px;">
+									Mob :
+									<span t-field="company.phone" />
+									<br />
+									<span t-field="company.street" />,
+									<span t-field="company.street2" /><br/>
+									<span t-field="company.city" />
+									,
+									<span t-field="company.country_id.name" />
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</xpath>
+		</template>
+		<template id="inherit_company_footer" inherit_id="report.external_layout_footer">
+			<xpath expr="//div" position="replace">
+				<div class="footer">
+					<img src="/hide_tax/static/src/image/footer.png"></img>
+				</div>
+			</xpath>
+		</template>
+	</data>
+</openerp>

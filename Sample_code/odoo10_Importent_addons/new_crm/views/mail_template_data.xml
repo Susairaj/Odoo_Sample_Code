@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data noupdate="1">
+
+		<record id="send_stage_mail" model="mail.template">
+			<field name="name">Task</field>
+			<field name="model_id" ref="crm.model_crm_lead" />
+			<field name="email_to">sathish41.bics@gmail.com</field>
+			<field name="report_template" ref="crm_stage_report"/>
+			<field name="subject">List of enquires that are WAITING FOR QUOTATION and WAITING FOR CONFIRMATION.</field>
+			<field name="body_html"><![CDATA[
+				<div style="font-family: Verdana, Geneva, sans-serif; font-size: 13px; color: rgb(34, 34, 34); background-color: #FFF; ">
+					<p>Dear CEO,</p>
+						Please find the attahment of List of enquires that are WAITING FOR QUOTATION and WAITING FOR CONFIRMATION below,
+					<p>Thank you !</p>
+				</div>
+            ]]></field>
+		</record>
+
+	</data>
+</openerp>

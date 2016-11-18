@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<template id="crm_report">
+			<t t-call="report.html_container">
+				<t t-call="report.internal_layout">
+					<div class="page">
+						<h1
+							style="width:100%;height:5%;font-size:15px;padding:10px;font-weight:bold;text-align:center;">Stage Details</h1>
+						<br />
+						<br />
+						<table class="table table-condensed">
+							<thead>
+								<tr>
+									<th
+										style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">Enquiry No</th>
+									<th
+										style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">Description</th>
+									<th
+										style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">Vessel Name</th>
+									<th
+										style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">Department</th>
+									<th
+										style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">URL</th>
+									<th
+										style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">Customer</th>
+									<th
+										style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">Country</th>
+									<th
+										style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">Next Activity Date </th>
+									<th
+										style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">Stage</th>
+									<th
+										style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">Expected Revenue</th>
+									<th
+										style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">Probability</th>
+									<th
+										style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">Customer Type</th>
+									<th
+										style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">Sales Person</th>
+								</tr>
+							</thead>
+							<tbody>
+								<t t-set="total" t-value="0" />
+								<t t-foreach="get_data" t-as="orders">
+									<tr>
+										<td
+											style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">
+											<span t-esc="orders['enquiry_no']" />
+										</td>
+										<td
+											style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">
+											<span t-esc="orders['name']" />
+										</td>
+										<td
+											style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">
+											<span t-esc="orders['vessel_name']" />
+										</td>
+										<td
+											style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">
+											<span t-esc="orders['department_id']" />
+										</td>
+										<td
+											style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">
+											<span t-esc="orders['url']" />
+										</td>
+										<td
+											style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">
+											<span t-esc="orders['partner_id']" />
+										</td>
+										<td
+											style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">
+											<span t-esc="orders['country_id']" />
+										</td>
+										<td
+											style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">
+											<span t-esc="orders['date_action']" />
+										</td>
+										<td
+											style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">
+											<span t-esc="orders['stage_id']" />
+										</td>
+										<td
+											style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">
+											<span t-esc="orders['planned_revenue']" />
+										</td>
+										<td
+											style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">
+											<span t-esc="orders['probability']" />
+										</td>
+										<td
+											style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">
+											<span t-esc="orders['team_id']" />
+										</td>
+										<td
+											style="width: 166px;height: 32px;border: 1px solid #4c4c4c;border-collapse: collapse;padding:5px">
+											<span t-esc="orders['user_id']" />
+										</td>
+									</tr>
+								</t>
+							</tbody>
+						</table>
+					</div>
+				</t>
+				</t>
+		</template>
+
+	</data>
+</openerp>

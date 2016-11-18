@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+		<report string="Crm State" id="crm_stage_report" model="crm.lead" report_type="qweb-pdf" name="new_crm.crm_report"	file="new_crm.crm_report" />
+
+	</data>
+</openerp>

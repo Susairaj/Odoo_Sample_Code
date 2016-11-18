@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="account_invoice_view_modify">
+            <field name="name">account.invoice.view.modify</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//notebook/page/group[@class='oe_subtotal_footer oe_right']/field[@name='amount_untaxed']" position="attributes">
+                        <attribute name="invisible">True</attribute>
+                    </xpath>
+                    
+                    <xpath expr="//notebook/page/group[@class='oe_subtotal_footer oe_right']/field[@name='amount_tax']" position="attributes">
+                        <attribute name="invisible">True</attribute>
+                    </xpath>
+                    
+                    <xpath expr="//notebook/page/field/tree/field[@name='invoice_line_tax_ids']" position="attributes">
+                        <attribute name="invisible">True</attribute>
+                    </xpath>
+                    
+                     <xpath expr="//notebook/page[2]/field[@name='tax_line_ids']" position="attributes">
+                        <attribute name="invisible">True</attribute>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <!-- <record model="ir.ui.view" id="account_invoice_view_inherit_1">
+            <field name="name">account.invoice.view.inherit1</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_sale_receipt_form"/>
+            <field name="arch" type="xml">
+                <data>
+                	<xpath expr="//notebook/page/field/tree/field[@name='tax_ids']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//notebook/page/group/group/field[@name='tax_amount']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                </data>
+            </field>
+        </record> -->
+
+        <record model="ir.ui.view" id="account_invoice_supplier">
+            <field name="name">account.invoice.supplier</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <!-- <xpath expr="//group[@class='oe_subtotal_footer oe_right']/div" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath> -->
+
+                    <!-- <xpath expr="//notebook/page/group/field[@name='amount_tax']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath> -->
+                    <xpath expr="//field[@name='amount_tax']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+
+                    <xpath expr="//notebook/page/field/tree/field[@name='invoice_line_tax_ids']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+
+                    <xpath expr="//notebook/page/group/group[1]/div/field[@name='tax_line_ids']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <!-- <record model="ir.ui.view" id="account_purchase_receipt">
+            <field name="name">account.purchase.receipt</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_purchase_receipt_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//notebook/page/field/tree/field[@name='tax_ids']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//notebook/page/group/group[1]/field[@name='tax_amount']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                </data>
+            </field>
+        </record> -->
+        
+		<template id="account_tax_hide" inherit_id="account.report_invoice_document">
+			<xpath expr="//table/tbody/tr/td[7]" position="replace">
+				<td class="text-right">
+					<span t-field="o.currency_id.symbol" />
+                    <span t-esc="'{0:,.3f}'.format(round(l.price_subtotal, 1))" />
+                </td>
+			</xpath>
+			<xpath expr="//div/div[3]/div/table/tr/td[2]" position="replace">
+				<td class="text-right">
+					<span t-field="o.currency_id.symbol" />
+					<span t-esc="'{0:,.3f}'.format(round(o.amount_untaxed, 1))" />
+				</td>
+			</xpath>
+			<xpath expr="//div/div[3]/div/table/tr[2]/td[2]" position="replace">
+				<td class="text-right">
+					<span t-field="o.currency_id.symbol" />
+					<span t-esc="'{0:,.3f}'.format(round(o.amount_total, 1))" />
+				</td>
+			</xpath>
+			<xpath expr="//div/table/thead/tr/th[7]" position="replace">
+				<th class="text-right">Price</th>
+			</xpath>
+			<xpath expr="//div/div[3]/div/table/tr[1]" position="replace" />
+			<xpath expr="//div/table/thead/tr/th[6]" position="replace"/>
+			<xpath expr="//div/table/tbody/tr/td[6]" position="replace"/>
+			
+			
+        </template>
+        <delete model="ir.ui.menu" id="account.next_id_27"/>
+
+        <delete model="ir.ui.menu" id="account.menu_action_tax_code_list" />
+
+        <delete model="ir.ui.menu" id="account.menu_action_tax_form" />
+        
+    </data>
+</openerp>
