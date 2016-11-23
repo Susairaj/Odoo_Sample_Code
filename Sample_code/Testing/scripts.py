@@ -21,3 +21,4 @@ os.system("taskkill /f /im wordpad.exe")
 # os.system("taskkill /f /im [executable name].exe")
 # shutdown the computer in 1 second
 os.system("shutdown /s /t 1")
+
