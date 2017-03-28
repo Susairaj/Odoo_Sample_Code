@@ -204,9 +204,9 @@ if __name__ == '__main__':
     try:
 #        proxy = sys.argv[1].split(":")
 #        dest = sys.argv[2].split(":")
-        proxyhost = "192.168.1.124"
+        proxyhost = "192.168.1.125"
         proxyport = int(12345)
-        serverhost = "192.168.1.23"
+        serverhost = "192.168.1.24"
         serverport = int(8080)
     except:    
         print(USAGE)
