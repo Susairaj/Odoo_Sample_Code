@@ -1,0 +1,41 @@
+.tabs { margin: 0px; position: relative; background: #eee; box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2); width: 100%; }
+.tabs nav { display: flex; flex-wrap: wrap; align-items: stretch; background: #434755; color: #fff; text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2); width: 250px; }
+.tabs nav a { padding:22px 20px; text-align: left; width: 100%; cursor: pointer; text-transform:uppercase;}
+.tabs nav a:hover, .tabs nav a.selected { background: #f89966; color: #fff; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); }
+.tabs .content { padding: 20px 0px; position: absolute; top: 0px; text-align: left; left: 250px; color: #6C5D5D; width: 0px; height: 100%; overflow: hidden; opacity: 0; transition: opacity 0.1s linear 0s; right: 200px; }
+.tabs .content.visible { padding: 20px; width: calc(93% - 150px); overflow: scroll; opacity: 1; }
+.tabs .content p { padding-bottom: 2px; }
+.tabs .content p:last-of-type { padding-bottom: 0px; }
+.content h2 { text-align: left; color: #f89966; font-weight: bold; margin-bottom: 10px; font-size: 20px; }
+.content h3 { text-align: center; color: #f89966; font-weight: bold; margin-bottom: 10px; font-size: 25px; }
+.content h4 { text-align: center; color: #444; font-weight: bold; margin-bottom: 10px; font-size: 22px; }
+.content h5 { text-align: left; color: #444; font-weight: bold; margin-bottom: 10px; font-size: 16px; }
+.fa { margin-right: 10px; }
+.content .fa { color: #ff8948;padding-right:0; }
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+.tabs { margin: 0px; position: relative; width: 100%; }
+.tabs nav { display: flex; flex-wrap: wrap; align-items: stretch; width: 150px; }
+.tabs nav a { padding: 20px 0px; text-align: center; width: 100%; cursor: pointer; }
+.tabs nav a:hover, .tabs nav a.selected {  }
+.tabs .content { padding: 20px 0px; position: absolute; top: 0px; left: 150px;  width: 0px; height: 100%; overflow: hidden; opacity: 0; transition: opacity 0.1s linear 0s; }
+.tabs .content.visible { padding: 20px; width: calc(100% - 150px); overflow: scroll; opacity: 1; }
+.tabs .content p { padding-bottom: 2px; }
+.tabs .content p:last-of-type { padding-bottom: 0px; }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+}
