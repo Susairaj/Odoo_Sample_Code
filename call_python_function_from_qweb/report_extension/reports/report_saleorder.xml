@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <template id="report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//p[@t-field='doc.note']" position="replace">
+            <t t-foreach="split_text(doc.note)" t-as="text_line">
+                <p t-esc="text_line.strip()"/>
+            </t>
+        </xpath>
+    </template>
+</data>
+</odoo>

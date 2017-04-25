@@ -387,3 +387,13 @@ Format date in Odoo 8 QWeb:::
 also use this code
 
 <span t-field="o.date_order" t-field-options="{&quot;format&quot;: &quot;yyyy-MM-dd&quot;}" />
+
+####################################
+Bring selection field value in Mail Template:
+Maintenane Type: ${dict(object.fields_get(allfields=['maintenance_type'])['maintenance_type']['selection'])[object.maintenance_type]}
+################
+Space in QWeb:
+
+<![CDATA[
+&nbsp;
+]]>
