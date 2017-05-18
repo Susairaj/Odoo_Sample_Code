@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+	<record id="view_move_form" model="ir.ui.view">
+		<field name="name">show.charts.form</field>
+		<field name="model">show.charts</field>
+		<field eval="1" name="priority" />
+		<field name="arch" type="xml">
+			<form string="Charts Dashbard" create="false" edit="false">
+				<table>
+					<tr>
+						<td>
+							<div>
+								<table>
+									<tr style="background-color: #8c8c8c;">
+										<td style="font-size: 30px;width: 370px;">Invoices</td>
+										<td>
+											<field name="categ_id" widget="selection" />
+										</td>
+									</tr>
+									<tr >
+										<td><button name="create_invoice" string="Create Invoice" type="object"/></td>
+										<td>
+											<p style="color:#68ceb1">202 Paid Invoice             RS.25000</p>
+											<p style="color:#71bceb">202 Draft Invoice             RS.25000</p>
+											<p style="color:#ffa967">202 Awaiting Payment             RS.25000</p>
+											<p style="color:#f88d71">202 Ouverdue             RS.25000</p>
+										</td>
+									</tr>
+								</table>
+								<field name="image1" nolabel="1" width="550px" height="300px"
+									readonly="1" widget="image" />
+							</div>
+						</td>
+						<td>
+							<div>
+								<table>
+									<tr style="background-color: #8c8c8c;">
+										<td style="font-size: 30px;width: 370px;">Invoices</td>
+										<td>
+											<field name="categ_id" widget="selection" />
+										</td>
+									</tr>
+									<tr >
+										<td><button name="create_invoice" string="Create Invoice" type="object"/></td>
+										<td>
+											<p style="color:#68ceb1">202 Paid Invoice             RS.25000</p>
+											<p style="color:#71bceb">202 Draft Invoice             RS.25000</p>
+											<p style="color:#ffa967">202 Awaiting Payment             RS.25000</p>
+											<p style="color:#f88d71">202 Ouverdue             RS.25000</p>
+										</td>
+									</tr>
+								</table>
+								<field name="image2" nolabel="1" width="550px" height="300px"
+									readonly="1" widget="image" />
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div>
+								<table>
+									<tr style="background-color: #8c8c8c;">
+										<td style="font-size: 30px;width: 370px;">Invoices</td>
+										<td>
+											<field name="categ_id" widget="selection" />
+										</td>
+									</tr>
+									<tr >
+										<td><button name="create_invoice" string="Create Invoice" type="object"/></td>
+										<td>
+											<p style="color:#68ceb1">202 Paid Invoice             RS.25000</p>
+											<p style="color:#71bceb">202 Draft Invoice             RS.25000</p>
+											<p style="color:#ffa967">202 Awaiting Payment             RS.25000</p>
+											<p style="color:#f88d71">202 Ouverdue             RS.25000</p>
+										</td>
+									</tr>
+								</table>
+								<field name="image3" nolabel="1" width="550px" height="300px"
+									readonly="1" widget="image" />
+							</div>
+						</td>
+						<td>
+							<div>
+								<table>
+									<tr style="background-color: #8c8c8c;">
+										<td style="font-size: 30px;width: 370px;">Invoices</td>
+										<td>
+											<field name="categ_id" widget="selection" />
+										</td>
+									</tr>
+									<tr >
+										<td><button name="create_invoice" string="Create Invoice" type="object"/></td>
+										<td>
+											<p style="color:#68ceb1">202 Paid Invoice             RS.25000</p>
+											<p style="color:#71bceb">202 Draft Invoice             RS.25000</p>
+											<p style="color:#ffa967">202 Awaiting Payment             RS.25000</p>
+											<p style="color:#f88d71">202 Ouverdue             RS.25000</p>
+										</td>
+									</tr>
+								</table>
+								<field name="image4" nolabel="1" width="550px" height="300px"
+									readonly="1" widget="image" />
+							</div>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</field>
+	</record>
+
+
+	<record id="show_charts_action" model="ir.actions.act_window">
+		<field name="name">Show Charts</field>
+		<field name="res_model">show.charts</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">form</field>
+	</record>
+
+	<menuitem name="Accounting Dashboard" id="dashboard_root_menu" action="show_charts_action" />
+
+</odoo>

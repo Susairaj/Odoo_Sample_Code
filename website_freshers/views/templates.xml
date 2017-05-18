@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<template id="assets_frontend" inherit_id="website.assets_frontend" name="website_blog assets" >
+    <xpath expr="." position="inside">
+    	<link rel='stylesheet' href="/website_freshers/static/css/website_freshers.css"/>
+		<script type="text/javascript" src="/website_freshers/static/src/js/website_freshers.js"/>
+    </xpath>
+</template>
+
+<template id="index" name="Freshers">
+    <t t-call="website.layout">
+        <div id="wrap">
+            <div class="oe_structure">
+                <section data-snippet-id="text-block" class="mb16">
+                       <div class="row">
+                           <div class="col-md-12" data-snippet-id="colmd">
+                               <section class="mt16 mb16">
+						            <div class="col-md-4">
+						              <img alt="Odoo - Sample 1 for three columns" class="img img-rounded img-responsive" src="/website_freshers/static/src/img/freshers.jpg"/>
+						              <h4 class="mt16">Freshers</h4>
+						              <p>
+						              	* Can create profile.<br/>
+						              	* Those who are doing their degrees in 2nd and 3rd year.<br/>
+										* Those who done their degrees within past two years.<br/>
+										* Can view job opportunities and they can apply for it.<br/>
+									  </p>
+									  <h3 class="mt8 mb0">
+									  	<a t-attf-href="/freshers/create/" class="btn btn-primary btn-xs">Apply</a>
+									  </h3>
+						            </div>
+						            <div class="col-md-4">
+						              <img alt="Odoo - Sample 2 for three columns" class="img img-rounded img-responsive" src="/website_freshers/static/src/img/College.jpg"/>
+						              <h4 class="mt16">Colleges</h4>
+						              <p>
+						              	* Can create profile.<br/>
+										* Can view job post.<br/>
+										* Market their college to the companies and consultancies.<br/>
+										* Can view  their own  student.<br/>
+						              </p>
+						              <h3 class="mt8 mb0">
+										<a t-attf-href="/freshers/create_college/" class="btn btn-primary btn-xs">Apply</a>						              	
+						              </h3>
+						            </div>
+						            <div class="col-md-4">
+						              <img alt="Odoo - Sample 3 for three columns" class="img img-rounded img-responsive" src="/website_freshers/static/src/img/Company.jpg"/>
+						              <h4 class="mt16">Companies</h4>
+						              <p>
+										* Create job post based on criteria like location, course, language and etc …<br/>
+										* Candidates are filtered based on their performance and new candidates will not be sorted.<br/> 
+										* Send Interview results to fresher via mail and mobile notification.<br/>
+						              </p>
+						              <h3 class="mt8 mb0">
+						              	<a t-attf-href="/freshers/create_company/" class="btn btn-primary btn-xs">Apply</a>
+						              </h3>
+						            </div>
+						     </section>
+				            	<br/><br/><br/><br/>
+	                       </div>
+                       </div>
+                </section>
+            </div>
+        </div>
+    </t>
+</template>
+
+<template id="create">
+    <t t-call="website.layout">
+        <t t-set="additional_title">Create Freshers</t>
+        <div id="wrap">
+            <div class="container">
+                <h2 class="text-center">
+                    Fresher Registration Form
+                </h2>
+                <div class="row">
+                                        <section id="forms">
+                        <!-- TODO Multilingual form action support ? -->
+                        <form class="form-horizontal mt32" action="/freshers/save" method="post" enctype="multipart/form-data">
+                        	<div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="name">Name</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="text"  class="form-control" name="name" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="gender">Gender</label>
+                            	<div class="col-md-7 col-sm-8">
+	                                <select name="gender" class="form-control">
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+	                                </select>
+                            	</div>
+                            </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="dob">DOB</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="date" class="form-control" name="dob" required="True"/>
+                                </div>
+                            </div>
+                            
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="partner_phone">Phone</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="text" class="form-control" name="partner_phone" required="True"/>
+                                </div>
+                            </div>
+							<div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="email_from">Email</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="text" class="form-control" name="email_from" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="login">UserName</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="text"  class="form-control" name="login" required="True"/>
+                                </div>
+                            </div>
+							<div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="password">Password</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="password" class="form-control"  id="pass1" name="password" required="True"/>
+                                </div>
+                            </div>
+							<div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="confirm">Confirm Password</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="password" class="form-control" id="pass2" onkeyup="checkPass(); return false;" name="confirm" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+	                            <div class="form-group">
+	                                <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+	                                    <button type="submit" class="btn btn-primary">Submit</button>
+	                                </div>
+	                            </div>
+	                       	</div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>
+
+<template id="create_college">
+    <t t-call="website.layout">
+        <t t-set="additional_title">Create College</t>
+        <div id="wrap">
+            <div class="container">
+                <h2 class="text-center">
+                    College Registration Form
+                </h2>
+                <div class="row">
+                    <section id="forms">
+                        <!-- TODO Multilingual form action support ? -->
+                        <form class="form-horizontal mt32" action="/freshers/college_save" method="post" enctype="multipart/form-data">
+                        	<div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="name">Name of College</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="text"  class="form-control" name="name" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="accreditation">Accreditation Details</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="text" class="form-control" name="accreditation" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+	                             <label class="col-md-3 col-sm-4 control-label" for="street">Address</label>
+	                             <div class="col-md-7 col-sm-8">
+	                                 <input type="html"  class="form-control" name="street" required="True"/>
+	                             </div>
+                            </div>
+                            <div t-attf-class="form-group#{error and 'city' in error and 'has-error' or ''}">
+	                             <label class="col-md-3 col-sm-4 control-label" for="city">City</label>
+	                             <div class="col-md-7 col-sm-8">
+	                                 <input type="html"  class="form-control" name="city" required="True"/>
+	                             </div>
+							</div>
+							<div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="district_id" >District</label>
+			                   	<div class="col-md-7 col-sm-8">
+				                    <select name="district_id" class="form-control">
+				                          <option value="">select...</option>
+				                          <t t-foreach="districts or []" t-as="district">
+				                              <option t-att-value="district.id"><t t-esc="district.name"/></option>
+				                          </t>
+				                    </select>
+			                    </div>
+		                    </div>
+							<div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="state_id" >State</label>
+			                   	<div class="col-md-7 col-sm-8">
+				                    <select name="state_id" class="form-control">
+				                          <option value="">select...</option>
+				                          <t t-foreach="states or []" t-as="state">
+				                              <option t-att-value="state.id" t-att-data-country_id="state.country_id.id" ><t t-esc="state.name"/></option>
+				                          </t>
+				                    </select>
+			                    </div>
+			                 </div>
+							<div t-attf-class="form-group">
+								<label class="col-md-3 col-sm-4 control-label" for="country_id">Country</label>
+								<div class="col-md-7 col-sm-8">
+			                        <select name="country_id" class="form-control">
+			                          <option value="">Country...</option>
+			                          <t t-foreach="countries or []" t-as="country">
+			                              <option t-att-value="country.id"><t t-esc="country.name"/></option>
+			                          </t>
+			                        </select>
+		                        </div>
+                               </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="phone">Phone Number</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="html"  class="form-control" name="phone" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="website">Website URL</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="html"  class="form-control" name="website" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="year_of_establishemnt">Year of Establishment</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="html"  class="form-control" name="year_of_establishemnt" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="avail_courses">Courses Available (Multiple)</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="html"  class="form-control" name="avail_courses" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="college_dec">Description about College</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="html"  class="form-control" name="college_dec" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="about_management">About Management</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="html"  class="form-control" name="about_management" required="True"/>
+                                </div>
+                            </div>
+                            
+                            <div t-attf-class="form-group">
+	                             <label class="col-md-3 col-sm-4 control-label" for="contact_name">Name of Contact Person</label>
+	                             <div class="col-md-7 col-sm-8">
+	                                 <input type="html"  class="form-control" name="contact_name" required="True"/>
+	                             </div>
+                            </div>
+                            <div t-attf-class="form-group">
+	                             <label class="col-md-3 col-sm-4 control-label" for="contact_email">Contact Person eMail (User name)</label>
+	                             <div class="col-md-7 col-sm-8">
+	                                 <input type="html"  class="form-control" name="contact_email" required="True"/>
+	                             </div>
+                            </div>
+                            <div t-attf-class="form-group">
+	                             <label class="col-md-3 col-sm-4 control-label" for="contact_mobile">Contact Person Mobile</label>
+	                             <div class="col-md-7 col-sm-8">
+	                                 <input type="html"  class="form-control" name="contact_mobile" required="True"/>
+	                             </div>
+	                            </div>
+       				        <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="login">AdminUserName</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="text"  class="form-control" name="login" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="password">AdminPassword</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="password"  class="form-control" id="pass1" name="password" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="confirm">ConfirmAdminPassword</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="password"  class="form-control" id="pass2" onkeyup="checkPass(); return false;"  name="confirm" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+	                            <div class="form-group">
+	                                <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+	                                    <button type="submit" class="btn btn-primary">Submit</button>
+	                                </div>
+	                            </div>
+	                       	</div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>
+
+<template id="create_company">
+    <t t-call="website.layout">
+        <t t-set="additional_title">Create Company</t>
+        <div id="wrap">
+            <div class="container">
+                <h2 class="text-center">
+                    Company Registration Form
+                </h2>
+                <div class="row">
+                    <section id="forms">
+                        <!-- TODO Multilingual form action support ? -->
+                        <form class="form-horizontal mt32" action="/freshers/company_save" method="post" enctype="multipart/form-data">
+                            <div t-attf-class="form-group#{error and 'name' in error and 'has-error' or ''}">
+                                <label class="col-md-3 col-sm-4 control-label" for="name">Name of Company</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="html"  class="form-control" name="name" required="True"/>
+                                </div>
+                            </div>
+							<div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="street">Address</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="html"  class="form-control" name="street" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group#{error and 'city' in error and 'has-error' or ''}">
+                                <label class="col-md-3 col-sm-4 control-label" for="city">City</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="html"  class="form-control" name="city" required="True"/>
+                                </div>
+							</div>
+							<div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="district_id" >District</label>
+			                   	<div class="col-md-7 col-sm-8">
+				                    <select name="district_id" class="form-control">
+				                          <option value="">select...</option>
+				                          <t t-foreach="districts or []" t-as="district">
+				                              <option t-att-value="district.id"><t t-esc="district.name"/></option>
+				                          </t>
+				                    </select>
+			                    </div>
+		                    </div>
+							<div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="state_id" >State</label>
+			                   	<div class="col-md-7 col-sm-8">
+				                    <select name="state_id" class="form-control">
+				                          <option value="">select...</option>
+				                          <t t-foreach="states or []" t-as="state">
+				                              <option t-att-value="state.id"><t t-esc="state.name"/></option>
+				                          </t>
+				                    </select>
+			                    </div>
+		                    </div>
+							<div t-attf-class="form-group">
+								<label class="col-md-3 col-sm-4 control-label" for="country_id">Country</label>
+								<div class="col-md-7 col-sm-8">
+			                        <select name="country_id" class="form-control">
+			                          <option value="">select...</option>
+			                          <t t-foreach="countries or []" t-as="country">
+			                              <option t-att-value="country.id"><t t-esc="country.name"/></option>
+			                          </t>
+			                        </select>
+		                        </div>
+		                    </div>
+		                    <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="phone">Phone</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="html"  class="form-control" name="phone" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+	                             <label class="col-md-3 col-sm-4 control-label" for="email">Email</label>
+	                             <div class="col-md-7 col-sm-8">
+	                                 <input type="html"  class="form-control" name="email" required="True"/>
+	                             </div>
+                            </div>
+                            <div t-attf-class="form-group">
+	                             <label class="col-md-3 col-sm-4 control-label" for="contact_name">Contact Person Name</label>
+	                             <div class="col-md-7 col-sm-8">
+	                                 <input type="html"  class="form-control" name="contact_name" required="True"/>
+	                             </div>
+                            </div>
+                            <div t-attf-class="form-group">
+	                             <label class="col-md-3 col-sm-4 control-label" for="contact_email">Contact Person eMail</label>
+	                             <div class="col-md-7 col-sm-8">
+	                                 <input type="html"  class="form-control" name="contact_email" required="True"/>
+	                             </div>
+                            </div>
+                            <div t-attf-class="form-group">
+	                             <label class="col-md-3 col-sm-4 control-label" for="contact_mobile">Contact Person Mobile</label>
+	                             <div class="col-md-7 col-sm-8">
+	                                 <input type="html"  class="form-control" name="contact_mobile" required="True"/>
+	                             </div>
+	                            </div>
+       				        <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="login">AdminUserName</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="text"  class="form-control" name="login" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="password">AdminPassword</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="password"  class="form-control" id="pass1" name="password" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+                                <label class="col-md-3 col-sm-4 control-label" for="confirm">ConfirmAdminPassword</label>
+                                <div class="col-md-7 col-sm-8">
+                                    <input type="password"  class="form-control" id="pass2" onkeyup="checkPass(); return false;"  name="confirm" required="True"/>
+                                </div>
+                            </div>
+                            <div t-attf-class="form-group">
+	                           <div class="form-group">
+	                               <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+	                                   <button type="submit" class="btn btn-primary">Submit</button>
+	                               </div>
+	                           </div>
+                           </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>
+
+</data>
+</openerp>
