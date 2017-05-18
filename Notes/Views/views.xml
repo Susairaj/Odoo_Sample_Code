@@ -34,7 +34,7 @@ if obj.partner_id:
     }
     self.pool.get('first.class').create(cr, uid, vals)
 
-##########
+###########
 Create , write many2many fields:::
 
     For Many2many
