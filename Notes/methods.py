@@ -262,7 +262,8 @@ get age::
                 res[rec.id] = today.year - dob.year
         return res
 ############################
-function field take the one class field to other class::
+Function field take the one class field to other class::
+
 	def _get_total(self, cr, uid, ids, name, args, context=None):
         res = dict.fromkeys(ids, False)
         total=0
@@ -644,7 +645,7 @@ def date_days_count(self):
 		days_count = str((d2 - d1).days)
 		self.date_days_counts = days_count
 ###########################
-Query Exicution::
+Query Execution::
 
 receive_query = 'select count(*) maximum , max(supplier_id) from materials_receiving  where store_id= %s and receive_date >= %s::date AND receive_date <= %s ::date  group by supplier_id   ORDER BY maximum DESC limit 5;'
 #         receive_query = 'select count(*) maximum , max(supplier_id), store_id  from materials_receiving where store_id = %s  group by supplier_id , store_id ORDER BY maximum DESC limit 5;'
@@ -716,3 +717,24 @@ string datetime into datetime:
 dt = datetime.strptime(record.confirmation_date, "%Y-%m-%d %H:%M:%S").date()
 date into datetime::
 dt1 = datetime.strftime(date, "%Y-%m-%d %H:%M:%S")
+
+Create Customer Invoice::
+current_date = datetime.datetime.now().date()
+            product_id = self.env['product.product'].search([('type','=','service')],limit=1)
+            if not product_id:
+                raise UserError(_('Please create at   least one service product in order to crate an Invoice'))
+            account_type_id = self.env['account.account.type'].sudo().search([('name', '=', 'Receivable')], limit=1)
+            journal_id = self.env['account.journal'].sudo().search([('company_id', '=', self.company_id.id), ('type', '=', 'sale')], limit=1)
+            account_id = None
+            for account in self.env['account.account'].sudo().search([('company_id', '=', self.company_id.id), ('user_type_id', '=', account_type_id.id)]):
+                account_id = account.id
+                break;
+            if not account_id:
+                raise UserError(_('Please create payable account for.' + str(self.company_id.name)))
+            account_list = []
+            account_list.append((0, 0, {'product_id':product_id.id,'quantity':1 , 'name':product_id.name,
+                                               'account_id':account_id,'price_unit': self.service_amount, 'uom_id':product_id.uom_id.id}))
+            if journal_id:
+                if account_list:
+                    self.env['account.invoice'].sudo().create({'partner_id':self.partner_id.id, 'date_invoice':current_date, 'currency_id': self.env.user.company_id.currency_id.id,'journal_id':journal_id.id, 'account_id':account_id, 
+                                                    'company_id':self.company_id.id,'invoice_line_ids':account_list, 'type':'out_invoice', 'state':'draft'})
