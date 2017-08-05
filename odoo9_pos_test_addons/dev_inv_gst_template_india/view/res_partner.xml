@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+    <data>
+   		 <record id="res_partner_gst_number_add" model="ir.ui.view">
+         <field name="name">res.partner.gst.number.add</field>
+         <field name="model">res.partner</field>
+	     <field name="inherit_id" ref="base.view_partner_form"/>
+         <field name="arch" type="xml">
+             <xpath expr="//field[@name='property_account_position_id']" position="after">
+		               <field name="partner_gst_number"  /> 
+        	</xpath>
+      </field>
+    </record>
+    
+    
+    
+    
+
+  </data>
+</openerp>
